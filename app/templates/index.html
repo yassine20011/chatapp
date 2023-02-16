@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chat App</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="message" id="message" />
+        <button type="submit" id="send">Send</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var  url = "http://127.0.0.1:8000/api/chatbot/";
+        var  send = document.getElementById("send");
+        var  message = document.getElementById("message");
+        var  chat = document.getElementById("chat");
+
+        send.addEventListener("click", function(e) {
+            e.preventDefault();
+            var  data = {
+                message: message.value,
+                csrfmiddlewaretoken: "{{ csrf_token }}",
+            };
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: data,
+                success: function(data) {
+                    console.log(data);
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+        });
+
+
+
+
+    </script>
+</body>
+</html>
