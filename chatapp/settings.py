@@ -60,12 +60,16 @@ MIDDLEWARE = [
 
 CHATTERBOT = {
     'name': 'Bot',
-    
-
     'logic_adapters': [
-        'chatterbot.logic.MathematicalEvaluation',
-        'chatterbot.logic.BestMatch'
-    ]
+        {
+            'import_path': 'chatterbot.logic.BestMatch',
+            'default_response': 'Sorry, I do not understand. Please ask me questions related to the documentaries.',
+            'maximum_similarity_threshold': 0.90
+        }
+    ],
+    'preprocessors': [
+        'chatterbot.preprocessors.clean_whitespace'
+    ],
 }
 
 ROOT_URLCONF = 'chatapp.urls'

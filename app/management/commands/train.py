@@ -7,8 +7,6 @@ from chatterbot.trainers import ListTrainer
 class Command(BaseCommand):
     help = "Training the chatbot"
 
-    
-    
     def handle(self, *args, **options):
         conversations = []
         with open("dialogs.txt", "a+") as f:
@@ -20,10 +18,13 @@ class Command(BaseCommand):
             for str in data:
                 l = str.split("\t")
                 conversations.extend((l[0], l[1]))
-                        
+
         chatterbot = ChatBot(**settings.CHATTERBOT)
         trainer = ListTrainer(chatterbot)
         trainer.train(
-            conversations
+            [
+                'Hi',
+                'Hello there!',
+            ]
         )
         self.stdout.write(self.style.SUCCESS("Successfull!"))

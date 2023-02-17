@@ -4,7 +4,7 @@ import json
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from django.views import View
-from chatapp.settings import CHATTERBOT
+from chatterbot.ext.django_chatterbot import settings
 from .models import Chat
 
 
@@ -19,32 +19,8 @@ class ChatterBotApiView(View):
     Provide an API endpoint to interact with ChatterBot.
     """
 
-    chatterbot = ChatBot(**CHATTERBOT)
-    
-    trainer = ListTrainer(chatterbot)
-    
-    conversations = [
-    'hi',
-    'hello',
-    "Hello",
-    "Hi there!",
-    "How are you?",
-    "I'm doing well, thank you.",
-    "What's your name?",
-    "My name is ChatterBot.",
-    "How can I help you?",
-    "Tell me a joke.",
-    "Why don't scientists trust atoms? Because they make up everything!",
-    "That's hilarious!",
-    "Glad you liked it!",
-    "Bye",
-    'It was nice talking to you.',
-    'Thank you',
-    'You are welcome.',
-    'Goodbye'
-    'Goodbye'
-    'Hi'
-    'Hello']
+    chatterbot = ChatBot(**settings.CHATTERBOT)
+
 
     
     def post(self, request, *args, **kwargs):
