@@ -20,6 +20,31 @@ class ChatterBotApiView(View):
     """
 
     chatterbot = ChatBot(**CHATTERBOT)
+    
+    trainer = ListTrainer(chatterbot)
+    
+    conversations = [
+    'hi',
+    'hello',
+    "Hello",
+    "Hi there!",
+    "How are you?",
+    "I'm doing well, thank you.",
+    "What's your name?",
+    "My name is ChatterBot.",
+    "How can I help you?",
+    "Tell me a joke.",
+    "Why don't scientists trust atoms? Because they make up everything!",
+    "That's hilarious!",
+    "Glad you liked it!",
+    "Bye",
+    'It was nice talking to you.',
+    'Thank you',
+    'You are welcome.',
+    'Goodbye'
+    'Goodbye'
+    'Hi'
+    'Hello']
 
     
     def post(self, request, *args, **kwargs):

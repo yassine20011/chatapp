@@ -60,13 +60,10 @@ MIDDLEWARE = [
 
 CHATTERBOT = {
     'name': 'Bot',
-    'storage_adapter': 'chatterbot.storage.SQLStorageAdapter',
-    'database_uri': 'sqlite:///database.sqlite3',
-    'trainer': 'chatterbot.trainers.ListTrainer',
+    
 
     'logic_adapters': [
         'chatterbot.logic.MathematicalEvaluation',
-        'chatterbot.logic.TimeLogicAdapter',
         'chatterbot.logic.BestMatch'
     ]
 }
@@ -102,6 +99,15 @@ DATABASES = {
     }
 }
 
+COMPRESS_ENABLED = True
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',
+                       'django.contrib.staticfiles.finders.FileSystemFinder',
+                       'django.contrib.staticfiles.finders.AppDirectoriesFinder'
+                       )
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
