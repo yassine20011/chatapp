@@ -1,29 +1,127 @@
 <!DOCTYPE html>
+{% load compress %}
+{% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
     <title>Document</title>
 </head>
+
 <body>
-    <h1>Chat App</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="message" id="message" />
-        <button type="submit" id="send">Send</button>
-    </form>
+    <div class="container mx-auto">
+        <div class="row-span-3 ">
+            <form method="post" class="flex flex-col items-center justify-center h-screen">
+                {% csrf_token %}
+                    <div class="max-w-2xl border rounded">
+                        <div>
+                            <div class="w-full">
+                                <div class="relative flex items-center p-3 border-b border-gray-300">
+                                    <img class="object-cover w-10 h-10 rounded-full"
+                                        src="https://www.unwomen.org/sites/default/files/2022-10/UN-Women-Goodwill-Ambassador-Emma-Watson-Credit-Celeste-Sloman-853x1280.jpg"
+                                        alt="username" width="40" height="40" />
+                                    <span class="block ml-2 font-bold text-gray-600">Emma Watson</span>
+                                    <span class="absolute w-3 h-3 bg-green-600 rounded-full left-10 top-3">
+                                    </span>
+                                </div>
+                                <div class="relative w-full p-6 overflow-y-auto h-[40rem]">
 
+                                    <ul class="space-y-2" id="chatWindow">
+                                      
+                                        
+                                       
+                                       
+                                    </ul>
+
+                                </div>
+
+                                <div class="flex items-center justify-between w-full p-3 border-t border-gray-300">
+
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </button>
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+                                        </svg>
+                                    </button>
+
+                                    <input type="text" placeholder="Message"
+                                        class="block w-full py-2 pl-4 mx-3 bg-gray-100 rounded-full outline-none focus:text-gray-700"
+                                        name="message" required id="message"/>
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                                        </svg>
+                                    </button>
+                                    <button type="button" id="send">
+                                        <svg class="w-5 h-5 text-gray-500 origin-center transform rotate-90"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path
+                                                d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        var  url = "http://127.0.0.1:8000/api/chatbot/";
-        var  send = document.getElementById("send");
-        var  message = document.getElementById("message");
-        var  chat = document.getElementById("chat");
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 
-        send.addEventListener("click", function(e) {
+    <script>
+        var url = window.location.href + "api/chatbot/";
+        var send = document.getElementById("send");
+        
+        function makeid(length) {
+            let result = '';
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            const charactersLength = characters.length;
+            let counter = 0;
+            while (counter < length) {
+              result += characters.charAt(Math.floor(Math.random() * charactersLength));
+              counter += 1;
+            }
+            return result;
+        }
+        
+        
+        var chatWindow = document.getElementById("chatWindow");
+        
+        send.addEventListener("click", function (e) {
+            
+            var randomID = makeid(10);
+            console.log(randomID);
+
+            var user_chatID = 'user_chat' + randomID;
+            var bot_chatID = 'bot_chat' + randomID;
+
+
+            var message = document.getElementById("message");
+            var user_chat = document.getElementById("user_chat");
+            var user_message = `<li class="flex justify-end" id="${user_chatID}">
+                                    <div class="relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
+                                        <span class="block">${message.value}</span>
+                                    </div>
+                                </li>`;
+            chatWindow.insertAdjacentHTML('beforeend', user_message);
+            
+
             e.preventDefault();
-            var  data = {
+            var data = {
                 message: message.value,
                 csrfmiddlewaretoken: "{{ csrf_token }}",
             };
@@ -31,10 +129,15 @@
                 url: url,
                 type: "POST",
                 data: data,
-                success: function(data) {
-                    console.log(data);
+                success: function (data) {
+                    var bot_response = `<li class="flex justify-start" id="${bot_chatID}">
+                                            <div class="relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
+                                                <span class="block">${data['text']}</span>
+                                            </div>
+                                        </li>`;
+                    chatWindow.insertAdjacentHTML('beforeend', bot_response);
                 },
-                error: function(data) {
+                error: function (data) {
                     console.log(data);
                 }
             });
@@ -43,6 +146,9 @@
 
 
 
+
+
     </script>
 </body>
+
 </html>

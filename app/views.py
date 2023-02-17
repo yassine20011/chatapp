@@ -5,7 +5,7 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from django.views import View
 from chatapp.settings import CHATTERBOT
-
+from .models import Chat
 
 
 
@@ -21,6 +21,7 @@ class ChatterBotApiView(View):
 
     chatterbot = ChatBot(**CHATTERBOT)
 
+    
     def post(self, request, *args, **kwargs):
         """
         Return a response to the statement in the posted data.

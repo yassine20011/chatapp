@@ -38,8 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chatterbot.ext.django_chatterbot',
-    'app'
+    'app',
+    'compressor' # this is for compressing css and js files
 ]
+
+COMPRESS_ROOT = BASE_DIR / 'static'
+
+COMPRESS_ENABLED = True
+
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,7 +59,11 @@ MIDDLEWARE = [
 ]
 
 CHATTERBOT = {
-    'name': 'Tech Support Bot',
+    'name': 'Bot',
+    'storage_adapter': 'chatterbot.storage.SQLStorageAdapter',
+    'database_uri': 'sqlite:///database.sqlite3',
+    'trainer': 'chatterbot.trainers.ListTrainer',
+
     'logic_adapters': [
         'chatterbot.logic.MathematicalEvaluation',
         'chatterbot.logic.TimeLogicAdapter',

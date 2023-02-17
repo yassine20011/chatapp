@@ -8,6 +8,12 @@ This is a simple chatbot that can be used to answer questions about the weather,
 To install the chatbot, you will need to install the following packages:
 
 ```bash
+git clone <url>
+```
+
+## Virtual Environment
+
+```bash
 py -m venv env
 ```
 ## Usage 
