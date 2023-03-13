@@ -8,10 +8,16 @@ from chatterbot.ext.django_chatterbot import settings
 from .models import Chat
 
 
-
 def index(request):
     return render(request, 'index.html')
 
+
+def home(request):
+    return render(request, 'home.html')
+
+
+def learn(request):
+    return render(request, 'learn.html')
 
 
 class ChatterBotApiView(View):
@@ -21,8 +27,6 @@ class ChatterBotApiView(View):
 
     chatterbot = ChatBot(**settings.CHATTERBOT)
 
-
-    
     def post(self, request, *args, **kwargs):
         """
         Return a response to the statement in the posted data.
@@ -35,7 +39,6 @@ class ChatterBotApiView(View):
         response = self.chatterbot.get_response(input_data)
         print(response)
         response_data = response.serialize()
-    
 
         return JsonResponse(response_data, status=200)
 
