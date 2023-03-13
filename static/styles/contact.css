@@ -7,7 +7,7 @@
     box-sizing:border-box;
 }
 body{
-    background:linear-gradient(90deg,#FD9609 0%,#FD9609 40%,#4b2f9f 40%,#6946d6 100% );
+    background:linear-gradient(90deg,#FD9609 0%,#FD9609 40%,lightblue 40%,lightblue 100% );
 
 
 
@@ -118,7 +118,7 @@ body{
 }
 .inputBox input[type="submit"]:hover{
     color: #fff;
-    background-color: #6946d6;
+    background-color: lightblue;
     transition-duration:500ms;
 }
 
@@ -128,7 +128,7 @@ body{
 
 /*info styling*/
 .info{
-    background: #6946d6;
+    background: lightblue;
     border:5px solid #FFF;
     border-radius: 10px;
 }
@@ -210,13 +210,13 @@ body{
     100%   { transform: translate(-10, -10px); }
 }
 .form{
-    border-left:20px solid #4b2f9f;
+    border-left:20px solid lightblue;
 }
 
 /*Responsive design*/
 @media(max-width:991px){
     body{
-        background: #4b2f9f;
+        background: lightblue;
     }
     .contactUs{
         padding:20px;
