@@ -12,12 +12,23 @@ def index(request):
     return render(request, 'index.html')
 
 
-def about(request):
-    return render(request, 'about.html')
+def home(request):
+    return render(request, 'home.html')
 
 
 def learn(request):
     return render(request, 'learn.html')
+
+
+def contact(request):
+    return render(request, 'contact.html')
+
+
+def about(request):
+    return render(request, 'about.html')
+
+
+
 
 
 class ChatterBotApiView(View):

@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% load compress %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,33 +10,34 @@
     <link rel="stylesheet" href="static/style/about.css">
     <title>About Us</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static '/src/styles/about.css' %}">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
-      <img src="static/images/robot.png" width="55" height="55" alt="Logo">
+      <img src="{% static '/src/robot.png' %}/" width="55" height="55" alt="Logo">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item active">
+        <li class="my-li nav-item active">
           <a class="nav-link" href="home.html">
             <i class="fa-solid fa-house"></i>
             Home <span class="sr-only">
             </span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
+        <li class="my-li nav-item">
+          <a class="nav-link" href="learn.html">
             <i class="fa-sharp fa-solid fa-graduation-cap"></i>            Learn</a>
         </li>
-        <li class="nav-item">
+        <li class="my-li nav-item">
           <a class="nav-link" href="#">
             <i class="fa-sharp fa-regular fa-address-card"></i>
             Contact</a>
         </li>
-        <li class="nav-item">
+        <li class="my-li nav-item">
           <a class="nav-link" href="#">
             <i class="fa-sharp fa-solid fa-bookmark"></i>
             About</a>
