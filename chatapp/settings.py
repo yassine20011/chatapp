@@ -12,6 +12,14 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+import sys
+sys.setrecursionlimit(1500)
+
+
+load_dotenv()
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-57h2h!moa!xxifsyj^ktfd$4m1^2=$-_fe&y1uy=sludt(-0&&'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'chatterbot.ext.django_chatterbot',
     'app',
-    'compressor' # this is for compressing css and js files
+    'compressor'  # this is for compressing css and js files
 ]
 
 COMPRESS_ROOT = BASE_DIR / 'static'
@@ -60,16 +68,26 @@ MIDDLEWARE = [
 
 CHATTERBOT = {
     'name': 'Bot',
+
     'logic_adapters': [
         {
+            'import_path': 'chatterbot.logic.MathematicalEvaluation',
+        },
+        {
             'import_path': 'chatterbot.logic.BestMatch',
-            'default_response': 'Sorry, I do not understand. Please ask me questions related to the documentaries.',
+            'default_response': ['I am sorry, but I do not understand.',
+                                 'I did not understand your question.', 
+                                 'I am still learning, please try again later.', 
+                                 'I am sorry, I do not have an answer for that.'
+                                ],
             'maximum_similarity_threshold': 0.90
-        }
+        },
+        
+        
     ],
-    'preprocessors': [
-        'chatterbot.preprocessors.clean_whitespace'
-    ],
+
+    'preprocessors': ['chatterbot.preprocessors.clean_whitespace'],
+
 }
 
 ROOT_URLCONF = 'chatapp.urls'

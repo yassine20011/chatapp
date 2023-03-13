@@ -9,6 +9,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         conversations = []
+    
         with open("dialogs.txt", "a+") as f:
             f.seek(0)
             data = f.read()
@@ -22,9 +23,6 @@ class Command(BaseCommand):
         chatterbot = ChatBot(**settings.CHATTERBOT)
         trainer = ListTrainer(chatterbot)
         trainer.train(
-            [
-                'Hi',
-                'Hello there!',
-            ]
+            conversations
         )
         self.stdout.write(self.style.SUCCESS("Successfull!"))

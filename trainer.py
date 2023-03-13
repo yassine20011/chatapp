@@ -1,10 +1,4 @@
-with open("data.txt", "a+") as f:
-    f.seek(0)
-    data = f.read()
-    data = data.split("\n")
+import colorama
+from colorama import Fore
 
-    conversations = []
-    for str in data:
-        l = str.split("\t")
-        conversations.extend((l[0], l[1]))
-    print(conversations)   
+print(f'{Fore.RED}This text is red in color')
