@@ -25,6 +25,10 @@ class Command(BaseCommand):
             [
                 'Hi',
                 'Hello there!',
+                'Reda',
+                'is one of my creators',
+                'Tarik',
+                'is one of my creators'
             ]
         )
         self.stdout.write(self.style.SUCCESS("Successfull!"))

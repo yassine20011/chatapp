@@ -1,0 +1,19 @@
+body{
+    background-image: url("static/images/background.png");
+}
+
+li{
+    margin-left: 70px;
+    padding: 20px;
+    font-size: 20px;
+}
+
+a{
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;  
+}
+
+img{
+    margin-left: 50px;
+}
