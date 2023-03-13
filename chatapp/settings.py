@@ -64,7 +64,7 @@ CHATTERBOT = {
         {
             'import_path': 'chatterbot.logic.BestMatch',
             'default_response': 'Sorry, I do not understand. Please ask me questions related to the documentaries.',
-            'maximum_similarity_threshold': 0.90
+            'maximum_similarity_threshold': 0.60
         }
     ],
     'preprocessors': [

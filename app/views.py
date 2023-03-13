@@ -20,6 +20,14 @@ def learn(request):
     return render(request, 'learn.html')
 
 
+def contact(request):
+    return render(request, 'contact.html')
+
+
+def about(request):
+    return render(request, 'about.html')
+
+
 class ChatterBotApiView(View):
     """
     Provide an API endpoint to interact with ChatterBot.
