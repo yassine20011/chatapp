@@ -9,7 +9,7 @@ from .models import Chat
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'bot.html')
 
 
 def home(request):
@@ -26,6 +26,10 @@ def contact(request):
 
 def about(request):
     return render(request, 'about.html')
+
+
+def bot(request):
+    return render(request, 'bot.html')
 
 
 
