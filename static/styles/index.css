@@ -1,7 +1,17 @@
+.row-span-3 {
+    max-width: 1450px !important;
+}
+.mine{
+    max-width: 1450px !important ;
+    width: 90vw !important;
+}
 .my-li{
     margin-left: 70px;
     padding: 20px;
     font-size: 20px;
+}
+.h-screen{
+    height: 80vh !important;
 }
 a{
     font-size: larger;
@@ -9,6 +19,6 @@ a{
     font-weight: bolder;
 }
 
-img{
+.my-img{
     margin-left: 50px;
 }
