@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21cfc2a2-4361-4e72-b1cd-b77085a9ed7f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/signup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/management/commands/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/management/commands/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/sign-up.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/chatapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3-shm" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3-shm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3-wal" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3-wal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +125,11 @@
       <workItem from="1678732729578" duration="5917000" />
       <workItem from="1678738820324" duration="1707000" />
       <workItem from="1678740563111" duration="2154000" />
-      <workItem from="1678742744495" duration="194000" />
+      <workItem from="1678742744495" duration="2610000" />
+      <workItem from="1678745411135" duration="51000" />
+      <workItem from="1678747955435" duration="3973000" />
+      <workItem from="1678751952839" duration="244000" />
+      <workItem from="1678752224525" duration="3325000" />
     </task>
     <servers />
   </component>

@@ -8,6 +8,7 @@ urlpatterns = [
     path('learn.html', views.learn, name="learn"),
     path('contact.html', views.contact, name="contact"),
     path('about.html', views.about, name="about"),
-    path('login.html', views.login, name="login"),
-    path('signup.html', views.signup, name="signup"),
+    path('signup', views.singUpPage, name="signup"),
+    path('login', views.loginPage, name="login"),
+
 ]

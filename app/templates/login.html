@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-{% load compress %}
-{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -185,11 +183,13 @@ body{
                     <i class="fa-solid fa-lock"></i>
                     <input type="password" placeholder="**********" id="password" name="pass" required>
                 </div>
+               <!--<a href="#" class="forgot">Forgot Password?</a>-->
                 <input type="submit" value="Log in">
             </form>
-
+            <a href="{% url 'signup' %}" class="sign-up"><span class="create">Click to create an account?</span> Sign Up</a>
         </div>
     </div>
 
+    <script src="https://kit.fontawesome.com/c24812b27e.js" crossorigin="anonymous"></script>
 </body>
 </html>
